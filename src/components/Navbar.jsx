@@ -4,14 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { addPlaylist } from "../store";
 const Navbar = () => {
   const dispatch = useDispatch();
+
   const [playListName, setPlayListName] = useState("");
   const handleSongChange = (e) => {
     setPlayListName(e.target.value);
   };
   const handleSubmit = (e) => {
-    console.log(allPlaylist);
+    // console.log(allPlaylist);
     e.preventDefault();
-    dispatch(addPlaylist(playListName));
+    dispatch(addPlaylist({ name: playListName, data: [] }));
     console.log(allPlaylist);
     setPlayListName("");
   };
@@ -23,7 +24,7 @@ const Navbar = () => {
     return (
       <li>
         <a className="dropdown-item" href="#">
-          {mov}
+          {mov.name}
         </a>
       </li>
     );

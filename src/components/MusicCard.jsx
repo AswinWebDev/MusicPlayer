@@ -16,6 +16,9 @@ const MusicCard = ({ jsonData }) => {
         />
         <div className="card-body">
           <h5 className="card-title">{jsonData.title}</h5>
+          {/* just button here add to playlist */}
+          <button className="btn "></button>
+          {/* just button here add to playlist */}
           <p className="card-text">{jsonData.description}</p>
 
           {/* Audio */}
