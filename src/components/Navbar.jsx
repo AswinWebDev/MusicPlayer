@@ -6,7 +6,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const [playListName, setPlayListName] = useState("");
-  const handleSongChange = (e) => {
+  const handleChangeCreatePlaylist = (e) => {
     setPlayListName(e.target.value);
   };
   const handleSubmit = (e) => {
@@ -22,7 +22,7 @@ const Navbar = () => {
   ///////////////////////////////////////////////////////
   const renderedPlaylist = allPlaylist.map((mov) => {
     return (
-      <li>
+      <li key={mov.name}>
         <a className="dropdown-item" href="#">
           {mov.name}
         </a>
@@ -40,7 +40,7 @@ const Navbar = () => {
           className="form-control"
           aria-describedby="emailHelp"
           value={playListName}
-          onChange={handleSongChange}
+          onChange={handleChangeCreatePlaylist}
         ></input>
       </div>
       <button type="submit" className="btn btn-primary">

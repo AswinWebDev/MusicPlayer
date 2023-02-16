@@ -1,10 +1,9 @@
 import coolio from "../assets/coolio.mp3";
 import { useRef } from "react";
+import Model from "./Model";
 const MusicCard = ({ jsonData }) => {
-  // console.log(coolio);
-  const handleProgressBar = (e) => {
-    console.log(e);
-  };
+  // console.log(jsonData);
+
   return (
     <div className="col mt-2 mb-3 p-5">
       <div className="card">
@@ -16,10 +15,13 @@ const MusicCard = ({ jsonData }) => {
         />
         <div className="card-body">
           <h5 className="card-title">{jsonData.title}</h5>
-          {/* just button here add to playlist */}
-          <button className="btn "></button>
-          {/* just button here add to playlist */}
+
           <p className="card-text">{jsonData.description}</p>
+          {/* just button here add to playlist */}
+
+          <Model jsonData={jsonData} />
+
+          {/* just button here add to playlist */}
 
           {/* Audio */}
           <audio controls style={{ width: "100%" }}>
