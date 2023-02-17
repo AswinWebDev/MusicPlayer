@@ -1,24 +1,26 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PlaylistPage = () => {
+  const notify = () => toast("Playing next track!");
   /////---Finding specific playlist data -----////////
   const params = useParams();
   const allPlaylist = useSelector((state) => {
     return state.playlist;
   });
-  //   console.log(allPlaylist);
+
   const findObjWithName = allPlaylist.filter((mov) => {
     return mov.name === params.id;
   })[0].data;
-  console.log(findObjWithName);
+
   /////---Audio ref -----////////
   const [counter, setCounter] = useState(0);
   const audioRefs = useRef(findObjWithName.map(() => null));
   const [currentTrack, setCurrentTrack] = useState(null);
 
-  console.log(audioRefs);
   useEffect(() => {
     if (currentTrack !== null) {
       audioRefs.current[currentTrack].play();
@@ -44,27 +46,31 @@ const PlaylistPage = () => {
   ///////--changing track after s seconds-----////////
   const intervalId = useRef(null);
   useEffect(() => {
-    if (counter === 4 && currentTrack !== null) {
+    if (counter === 8 && currentTrack !== null) {
       const nextTrack = (currentTrack + 1) % findObjWithName.length;
       audioRefs.current[currentTrack].pause();
       setCurrentTrack(nextTrack);
       setCounter(0);
+      notify();
     }
   }, [counter]);
   ///////--changing track after s seconds-----////////
   const renderedData = findObjWithName.map((mov, index) => {
     return (
-      <ul class="list-group">
-        <li class="list-group-item d-flex">
+      <div className="row align-items-center mb-5 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+        <ToastContainer />
+        <div className="col-md">
           <button
-            className="btn btn-primary"
+            className="btn btn-info px-5 ms-2 me-5"
             onClick={() => {
               handleTrackClick(index);
             }}
           >
             {currentTrack === index ? "Pause" : "Play"}
           </button>
-          <div>{mov.title}</div>
+        </div>
+        <div className="col-md text-white fs-5">{mov.title}</div>
+        <div className="col-md">
           <audio
             ref={(el) => {
               audioRefs.current[index] = el;
@@ -74,16 +80,16 @@ const PlaylistPage = () => {
           >
             <source src={mov.url} type="audio/mpeg" />
           </audio>
-        </li>
-      </ul>
+        </div>
+      </div>
     );
   });
   //   console.log(renderedData);
   /////---Finding specific playlist data -----////////
   return (
-    <div>
+    <div className="bg-dark p-3">
       <div>{params.id}</div>
-      {renderedData}
+      <div class="container">{renderedData}</div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ const MusicList = ({ json }) => {
     return <MusicCard key={data.id} jsonData={data} />;
   });
   return (
-    <div className="container-md bg-dark pt-4 pb-3">
+    <div className="container-md bg-dark pt-4 pb-3 bg-black bg-gradient">
       <div className="row row-cols-1 row-cols-md-3 g-3">{renderedData}</div>
     </div>
   );

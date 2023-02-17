@@ -2,3 +2,39 @@
   display: flex;
   justify-content: flex-end;
 }
+audio::-webkit-media-controls-enclosure {
+  background-color: #54b4d3;
+  margin: 10px;
+  opacity: 10;
+}
+
+audio::-webkit-media-controls-play-button {
+  /* display: none !important; */
+  background-size: contain;
+  /* background-color: aliceblue; */
+}
+
+audio::-webkit-media-controls-timeline {
+  height: 4px;
+  border-radius: 41px;
+  background-color: cyan;
+}
+
+audio::-webkit-media-controls-current-time-display {
+  display: none;
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+  display: none;
+}
+
+/* audio::-webkit-media-controls-volume-slider-thumb {
+  background-color: #f00;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+} */
+
+/* audio::-webkit-media-controls-volume-slider {
+  display: none;
+} */

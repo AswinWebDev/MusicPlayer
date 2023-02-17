@@ -46,7 +46,7 @@ const Model = ({ jsonData }) => {
       {/* <!-- Button trigger modal --> */}
       <button
         type="button"
-        className="btn btn-primary px-5 "
+        className="btn btn-dark px-5 "
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         onClick={() => {

@@ -56,7 +56,7 @@ import malarnth from "../assets/Malarnthum.mp3";
       id: 6,
       title: "Eagles - Hotel California",
       description:
-        "The song has been described as being all about American decadence and burnout, too much money, corruption, drugs and arrogance; too little humility and heart. It has also been interpreted as an allegory about hedonism, self-destruction, and greed in the music industry of the late 1970s.",
+        "The song has been described as being all about American decadence and burnout, too much money, corruption, drugs and arrogance. It has also been interpreted as an allegory about hedonism, self-destruction, and greed in the music industry of the late 1970s.",
       url: `${eagles}`,
       image:
         "https://cdna.artstation.com/p/assets/images/images/009/394/490/large/aileen-ruiz-ruiz-aileen-albumcoverredesign.jpg?1518727526",

@@ -51,7 +51,7 @@ const Navbar = () => {
   );
   ////////////////////////--Form CreatePlaylist----//////////////////////////
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-dark bg-gradient">
       <div className="container-fluid">
         <span className="navbar-brand mb-0 h1 d-flex flex-row mb-2">
           <BsFileMusicFill />
