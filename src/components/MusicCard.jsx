@@ -18,8 +18,9 @@ const MusicCard = ({ jsonData }) => {
 
           <p className="card-text">{jsonData.description}</p>
           {/* just button here add to playlist */}
-
-          <Model jsonData={jsonData} />
+          <div className="d-flex justify-content-center">
+            <Model jsonData={jsonData} />
+          </div>
 
           {/* just button here add to playlist */}
 

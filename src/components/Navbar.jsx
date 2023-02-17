@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BsFileMusicFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { addPlaylist } from "../store";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const dispatch = useDispatch();
 
@@ -13,7 +14,7 @@ const Navbar = () => {
     // console.log(allPlaylist);
     e.preventDefault();
     dispatch(addPlaylist({ name: playListName, data: [] }));
-    console.log(allPlaylist);
+    // console.log(allPlaylist);
     setPlayListName("");
   };
   const allPlaylist = useSelector((state) => {
@@ -23,9 +24,9 @@ const Navbar = () => {
   const renderedPlaylist = allPlaylist.map((mov) => {
     return (
       <li key={mov.name}>
-        <a className="dropdown-item" href="#">
+        <Link className="dropdown-item" to={`/playlist/${mov.name}`}>
           {mov.name}
-        </a>
+        </Link>
       </li>
     );
   });
@@ -70,9 +71,9 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link className="nav-link active" aria-current="page" to={"/"}>
                 Home
-              </a>
+              </Link>
             </li>
 
             <li className="nav-item dropdown">

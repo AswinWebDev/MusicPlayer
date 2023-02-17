@@ -23,7 +23,7 @@ const Model = ({ jsonData }) => {
   const handleClick = (mov) => {
     const updatedData = [...mov.data, currentPlaylist];
     dispatch(updatePlaylist({ name: mov.name, data: updatedData }));
-    console.log(allPlaylist);
+    // console.log(allPlaylist);
   };
   /////////////////////////////////
 
@@ -46,14 +46,14 @@ const Model = ({ jsonData }) => {
       {/* <!-- Button trigger modal --> */}
       <button
         type="button"
-        className="btn btn-primary"
+        className="btn btn-primary px-5 "
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         onClick={() => {
           dispatch(addCurrent(jsonData));
         }}
       >
-        Launch demo modal
+        Add to playlist
       </button>
 
       {/* <!-- Modal --> */}

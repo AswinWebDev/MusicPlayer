@@ -5,7 +5,7 @@ const currentPlaylistSlice = createSlice({
   initialState: [],
   reducers: {
     addCurrent(state, action) {
-      return [action.payload];
+      return action.payload;
     },
   },
 });
