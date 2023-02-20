@@ -8,6 +8,7 @@ const PlaylistPage = () => {
   const notify = () => toast("Playing next track!");
   /////---Finding specific playlist data -----////////
   const params = useParams();
+
   const allPlaylist = useSelector((state) => {
     return state.playlist;
   });
@@ -57,12 +58,16 @@ const PlaylistPage = () => {
   ///////--changing track after s seconds-----////////
   const renderedData = findObjWithName.map((mov, index) => {
     return (
-      <div className="row align-items-center mb-5 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+      <div
+        key={index}
+        className="row align-items-center mb-5 bg-info bg-opacity-10 border border-info border-start-0 rounded-end"
+      >
         <ToastContainer />
         <div className="col-md">
           <button
             className="btn btn-info px-5 ms-2 me-5"
             onClick={() => {
+              console.log(mov);
               handleTrackClick(index);
             }}
           >
@@ -88,8 +93,8 @@ const PlaylistPage = () => {
   /////---Finding specific playlist data -----////////
   return (
     <div className="bg-dark p-3">
-      <div>{params.id}</div>
-      <div class="container">{renderedData}</div>
+      <div className="text-white p-2 mb-3 fs-5">Now Playing : {params.id}</div>
+      <div className="container">{renderedData}</div>
     </div>
   );
 };

@@ -6,7 +6,10 @@ const MusicCard = ({ jsonData }) => {
 
   return (
     <div className="col mt-2 mb-3 p-5">
-      <div className="card bg-info bg-opacity-10 border border-info rounded-end">
+      <div
+        className="card bg-info bg-opacity-10 border border-info rounded-end p-2"
+        style={{ height: "100%" }}
+      >
         <img
           src={jsonData.image}
           className="card-img-top"
@@ -18,6 +21,9 @@ const MusicCard = ({ jsonData }) => {
 
           <p className="card-text text-info">{jsonData.description}</p>
           {/* just button here add to playlist */}
+        </div>
+        {/* footer */}
+        <div className="card-footer">
           <div className="d-flex justify-content-center">
             <Model jsonData={jsonData} />
           </div>
@@ -30,6 +36,7 @@ const MusicCard = ({ jsonData }) => {
           </audio>
           {/* Audio  */}
         </div>
+        {/* footer */}
       </div>
     </div>
   );

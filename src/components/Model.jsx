@@ -1,7 +1,10 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addPlaylist, updatePlaylist, addCurrent } from "../store";
 const Model = ({ jsonData }) => {
+  const notify = () => toast("Added to playlist!");
   // const [playlistObj, setPlaylistObj] = useState({ obj: 1 });
 
   const dispatch = useDispatch();
@@ -15,21 +18,19 @@ const Model = ({ jsonData }) => {
   const currentPlaylist = useSelector((state) => {
     return state.current;
   });
-  // console.log(currentPlaylist);
   ///////////---Current Playlist state------/////////
-  // console.log("jsonData:", jsonData);
-  // console.log("playlistObj:", playlistObj);
-  /////////////////////////////////
+
+  ///////////---Update Playlist state------/////////
   const handleClick = (mov) => {
     const updatedData = [...mov.data, currentPlaylist];
     dispatch(updatePlaylist({ name: mov.name, data: updatedData }));
-    // console.log(allPlaylist);
+    notify();
   };
-  /////////////////////////////////
-
+  ///////////---Update Playlist state------/////////
   const renderedPlaylist = allPlaylist.map((mov) => {
     return (
       <div
+        key={mov.name}
         onClick={() => {
           handleClick(mov);
         }}
@@ -43,6 +44,18 @@ const Model = ({ jsonData }) => {
   });
   return (
     <div>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="dark"
+      />
       {/* <!-- Button trigger modal --> */}
       <button
         type="button"
@@ -87,9 +100,6 @@ const Model = ({ jsonData }) => {
                 data-bs-dismiss="modal"
               >
                 Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
               </button>
             </div>
           </div>

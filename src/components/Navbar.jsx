@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsFileMusicFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { addPlaylist } from "../store";
 import { Link } from "react-router-dom";
-const Navbar = () => {
+
+const Navbar = ({ onChangeHandler }) => {
   const dispatch = useDispatch();
 
   const [playListName, setPlayListName] = useState("");
@@ -11,10 +12,8 @@ const Navbar = () => {
     setPlayListName(e.target.value);
   };
   const handleSubmit = (e) => {
-    // console.log(allPlaylist);
     e.preventDefault();
     dispatch(addPlaylist({ name: playListName, data: [] }));
-    // console.log(allPlaylist);
     setPlayListName("");
   };
   const allPlaylist = useSelector((state) => {
@@ -44,18 +43,18 @@ const Navbar = () => {
           onChange={handleChangeCreatePlaylist}
         ></input>
       </div>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-dark">
         Submit
       </button>
     </form>
   );
   ////////////////////////--Form CreatePlaylist----//////////////////////////
   return (
-    <nav className="navbar navbar-expand-lg bg-dark bg-gradient">
+    <nav className="navbar navbar-expand-lg bg-black bg-gradient">
       <div className="container-fluid">
-        <span className="navbar-brand mb-0 h1 d-flex flex-row mb-2">
+        <span className="navbar-brand mb-0 h1 d-flex flex-row mb-2 text-white">
           <BsFileMusicFill />
-          <div className="mx-2">RhythmiC</div>
+          <div className="mx-2 text-white">RhythmiC</div>
         </span>
         <button
           className="navbar-toggler"
@@ -71,14 +70,18 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to={"/"}>
+              <Link
+                className="nav-link active text-white"
+                aria-current="page"
+                to={"/"}
+              >
                 Home
               </Link>
             </li>
 
             <li className="nav-item dropdown">
               <a
-                className="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle text-white"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -103,9 +106,10 @@ const Navbar = () => {
               type="search"
               placeholder="Search"
               aria-label="Search"
+              onChange={onChangeHandler}
             />
             <button className="btn btn-outline-dark" type="submit">
-              Search
+              <div className="text-white">Search</div>
             </button>
           </form>
         </div>
