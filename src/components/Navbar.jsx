@@ -49,6 +49,12 @@ const Navbar = ({ onChangeHandler }) => {
     </form>
   );
   ////////////////////////--Form CreatePlaylist----//////////////////////////
+
+  ///////////////////////--submit button ---/////////////////////////////////
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+  };
+  ///////////////////////--submit button ---/////////////////////////////////
   return (
     <nav className="navbar navbar-expand-lg bg-black bg-gradient">
       <div className="container-fluid">
@@ -100,7 +106,7 @@ const Navbar = ({ onChangeHandler }) => {
               </ul>
             </li>
           </ul>
-          <form className="d-flex" role="search">
+          <form className="d-flex" role="search" onSubmit={handleFormSubmit}>
             <input
               className="form-control me-2"
               type="search"
