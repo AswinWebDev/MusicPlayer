@@ -67,7 +67,6 @@ const PlaylistPage = () => {
           <button
             className="btn btn-info px-5 ms-2 me-5"
             onClick={() => {
-              console.log(mov);
               handleTrackClick(index);
             }}
           >
